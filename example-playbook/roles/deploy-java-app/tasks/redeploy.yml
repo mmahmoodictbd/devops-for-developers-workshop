@@ -1,0 +1,10 @@
+---
+
+
+- name: Git pull {{ app_git_repo }}
+  git:
+    repo: '{{ app_git_repo }}'
+    dest: /usr/{{ app_name }}/{{ app_git_repo_name }}
+    update: yes
+
+

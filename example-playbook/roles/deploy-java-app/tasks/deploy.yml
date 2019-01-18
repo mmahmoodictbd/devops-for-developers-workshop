@@ -1,0 +1,45 @@
+---
+
+
+- name: Check if git repo already exists
+  stat:
+    path: '/usr/{{ app_name }}/{{ app_git_repo_name }}'
+  register: git_repo_already_exist
+
+- debug:
+    msg: "git_repo_already_exist: {{ git_repo_already_exist.stat.exists }}, skipping git cloning"
+  when: git_repo_already_exist.stat.exists == true
+
+- name: Cloning Java App ({{ app_git_repo }})
+  git:
+    repo: '{{ app_git_repo }}'
+    dest: /usr/{{ app_name }}/{{ app_git_repo_name }}
+  when: git_repo_already_exist.stat.exists == false
+
+- name: Build Java App
+  command: 'chdir=/usr/{{ app_name }}/{{ app_git_repo_name }} mvn clean install -Dmaven.test.skip=true'
+
+- name: Find App Jar
+  find:
+    paths: '/usr/{{ app_name }}/{{ app_git_repo_name }}/target/'
+    patterns: "*.jar"
+  register: jar_files
+
+- name: Setting Jar Path
+  set_fact:
+    jar_path: '{{ jar_files.files[0].path }}'
+
+- name: Source the bashrc file
+  shell: 'source {{ ansible_env.HOME }}/.bashrc && printenv'
+  args:
+     executable: /bin/bash
+
+- debug: msg="{{ lookup('env','DB_USERNAME') }} is an environment variable"
+
+- debug: msg="hello {{ ansible_env.DB_USERNAME}}."
+
+- name: Run Java App
+  shell: 'nohup java -server -Xmx40m -Xss228k -XX:+UseG1GC -Dspring.profiles.active=prod -jar {{ jar_path }} > /usr/{{ app_name }}/{{ app_git_repo_name }}.log 2>&1 &'
+
+
+

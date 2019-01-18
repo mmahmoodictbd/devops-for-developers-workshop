@@ -1,0 +1,34 @@
+---
+
+- name: Checking if remote_user and app_name matched.
+  assert:
+    that: app_name == ansible_user_id
+    msg: "'{{ app_name }}' is not matched with remote_user '{{ ansible_user_id }}'"
+
+- name: Checking all required input parameters to execute this role
+  assert: { that: "{{ item }} is defined" }
+  with_items:
+    - app_name
+    - app_git_repo
+    - app_git_repo_name
+    - repo_auth_username
+    - repo_auth_password
+    - deploy_app
+    - redeploy_app
+
+- debug:
+    msg: "deploy_app: {{ deploy_app }} and redeploy_app: {{ redeploy_app }}"
+
+- name: Checking if deploy_app and redeploy_app both are True or False.
+  assert:
+    that: (deploy_app == 'True' and redeploy_app == 'False') or (deploy_app == 'False' and redeploy_app == 'True')
+    msg: "deploy_app and redeploy_app both can not be True/False at the same time"
+
+- include_tasks: 'deploy.yml'
+  when: deploy_app == 'True'
+
+- include_tasks: 'redeploy.yml'
+  when: redeploy_app == 'True'
+
+
+
