@@ -1,0 +1,5 @@
+# Configure Jenkins Programmatically
+
+Configuring Jenkins for CI/CD manually is a pain. Let's automate :-)
+
+Go to https://github.com/ChumbokIT/sdlc[ChumbokIT/sdlc], read the readme.

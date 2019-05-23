@@ -52,7 +52,7 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-.idea/ansible-for-java-dev-workshop.iml
+.idea/devops-for-developers-workshop.iml
 .idea/checkstyle-idea.xml
 .idea/compiler.xml
 .idea/findbugs-idea.xml

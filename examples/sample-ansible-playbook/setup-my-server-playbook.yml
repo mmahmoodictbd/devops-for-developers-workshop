@@ -1,0 +1,16 @@
+---
+
+- name: Build My Server
+  hosts: all
+  become: true
+  gather_facts: True
+
+  vars:
+    mysql_root_password: 'app1'
+
+  roles:
+    - common
+    - os
+    - apache
+    - mysql
+    - java

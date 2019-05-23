@@ -1,0 +1,39 @@
+# Helm
+
+Helm is a tool for managing Kubernetes charts. Charts are packages of pre-configured Kubernetes resources.
+
+
+### How to install:
+
+```
+brew install kubernetes-helm
+```
+
+
+### Helm initialize
+
+```
+helm init
+```
+
+
+### Install charts
+
+Install any chart you want, nice examples https://github.com/helm/charts/tree/master/stable[here].
+
+```
+helm install --name my-jenkins stable/jenkins --set master.serviceType=NodePort --set master.adminPassword=admin
+```
+
+```
+NOTE: Most of the charts use service type LoadBalancer by as default. For minikube, set this to NodePort.
+```
+
+
+### Install charts with Kubeapps
+
+Install charts with Kubeapps, it's easy and visual.
+
+```
+https://kubeapps.com/[Kubeapps]
+```

@@ -1,0 +1,50 @@
+# Terraform
+
+Terraform create cloud resource from conf/code. For example, create EC2 with code :-)
+
+Go to examples/sample-terraform-playground, directory contains terraform scripts.
+
+
+### Prerequisite
+
+* Have AWS account and install terraform.
+
+* Create .aws directory.
+
+* Create credentials file and set permission(chmod 600 credentials). Content inside credentials file as follows -
+
+```
+[default]
+aws_access_key_id = <KEY>
+aws_secret_access_key = <SECRET>
+```
+
+* Create ssh key
+```
+ssh-keygen -t rsa -C "ssh-key" -P '' -f .aws/ssh-key
+```
+
+
+### How to run
+
+```
+# check what going to create
+terraform plan
+```
+
+```
+# create aws resources
+terraform apply
+```
+
+```
+# destroy / delete resources
+terraform destroy
+```
+
+
+### SSH into machine, see - ip_address.txt
+
+```
+ssh -i .aws/ssh-key ubuntu@<ip>
+```
