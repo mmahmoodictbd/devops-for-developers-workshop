@@ -17,9 +17,22 @@ helm init
 ```
 
 
+### Create own chart
+
+```
+helm create mychart
+```
+
+Go to the created chart directory. Edit values.yaml and run following, this will show you actual Kubernetes resources.
+```
+helm template .
+```
+
+
 ### Install charts
 
-Install any chart you want, nice examples https://github.com/helm/charts/tree/master/stable[here].
+Install any chart you want, nice examples https://github.com/helm/charts/tree/master/stable[here]. I am installing
+Jenkins using helm from https://github.com/helm/charts/tree/master/stable/jenkins[here].
 
 ```
 helm install --name my-jenkins stable/jenkins --set master.serviceType=NodePort --set master.adminPassword=admin
