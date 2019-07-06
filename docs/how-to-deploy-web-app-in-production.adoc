@@ -1,0 +1,34 @@
+# How to Deploy Web Apps in Production
+
+
+### Apache as Front Server
+
+- Apache or nginx can be used as front server, which forward the call the backend service.
+
+- https://github.com/mmahmoodictbd/open-blog/blob/master/files/apache/Dockerfile[What needed to be installed in you server machine]
+
+- https://github.com/mmahmoodictbd/open-blog/blob/master/files/apache/vhost-default.conf[Apache config], includes -
+
+  * Remove headers from backend
+
+  * PageSpeed Filters
+
+  * Prevent DDos
+
+  * Mod Security
+
+
+### Run you backend service as you see fit
+
+- Apache gonna forward the call.
+
+
+### Good to read
+
+- https://github.com/spatie/checklist-going-live[A checklist for all projects that are going live]
+
+- https://github.com/GDSSecurity/Docker-Secure-Deployment-Guidelines[Docker Secure Deployment Guidelines]
+
+- https://github.com/trimstray/linux-hardening-checklist[Linux Hardening Checklist]
+
+- https://github.com/0xRadi/OWASP-Web-Checklist[OWASP Web Application Security Testing Checklist]

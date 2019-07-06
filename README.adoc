@@ -13,6 +13,8 @@
 
 - link:docs/configure-jenkins-programmatically.adoc[Configure Jenkins Programmatically]
 
+- link:docs/how-to-deploy-web-app-in-production.adoc[How to Deploy Web Apps in Production]
+
 
 ### Contribute
 Contributions are always welcome! Create a pull request.
