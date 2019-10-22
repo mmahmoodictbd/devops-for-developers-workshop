@@ -1,0 +1,7 @@
+# EKS with Terraform
+
+```
+$ brew install terraform
+$ brew install aws-iam-authenticator
+$ aws eks update-kubeconfig --name terraform-eks-demo
+```
