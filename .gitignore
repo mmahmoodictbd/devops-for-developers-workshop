@@ -61,3 +61,7 @@ fabric.properties
 .idea/sonarlint/
 .idea/vcs.xml
 .idea/sonarIssues.xml
+
+**/.terraform/**
+.idea/*
+**/terraform.tfstate**
