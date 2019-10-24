@@ -1,3 +1,5 @@
+# Example from https://learn.hashicorp.com/terraform/aws/eks-intro
+
 # Specify the provider and access details
 provider "aws" {
   region = "eu-central-1"

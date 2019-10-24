@@ -5,3 +5,29 @@ $ brew install terraform
 $ brew install aws-iam-authenticator
 $ aws eks update-kubeconfig --name terraform-eks-demo
 ```
+
+```
+aws eks update-kubeconfig --name terraform-eks-demo
+```
+
+```kubectl get nodes
+```
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-controller.json
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-master-service.json
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-controller.json
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/redis-slave-service.json
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-controller.json
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/v1.10.3/examples/guestbook-go/guestbook-service.json
+```
+
+```
+$ kubectl get services
+NAME           TYPE           CLUSTER-IP       EXTERNAL-IP        PORT(S)          AGE
+guestbook      LoadBalancer   172.20.177.126   aaaaa555ee87c...   3000:31710/TCP   4d
+kubernetes     ClusterIP      172.20.0.1                    443/TCP          10d
+redis-master   ClusterIP      172.20.242.65                 6379/TCP         4d
+redis-slave    ClusterIP      172.20.163.1                  6379/TCP         4d
+$
+```
