@@ -37,3 +37,9 @@ kubectl describe svc kubernetes
 ```
 https://github.com/mmahmoodictbd/production-ready-microservices-starter/tree/master/deployment/k8s
 ```
+
+### How to debug cluster
+
+```
+kubectl run my-debugger --image=ubuntu -i --tty --rm
+```
